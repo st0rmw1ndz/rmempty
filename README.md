@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-pip install git+https://codeberg.org/frosty/rmempty.git
+pip install git+https://github.com/st0rmw1ndz/rmempty.git
 ```
 
 ## Usage
@@ -21,5 +21,5 @@ positional arguments:
 options:
   -h, --help  show this help message and exit
 
-Source code: https://codeberg.org/frosty/rmempty
+Source code: https://github.com/st0rmw1ndz/rmempty
 ```

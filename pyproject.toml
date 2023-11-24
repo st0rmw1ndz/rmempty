@@ -2,7 +2,7 @@
 name = "rmempty"
 version = "1.0.0"
 description = "Remove empty directories from a directory tree"
-authors = ["frosty <inthishouseofcards@gmail.com>"]
+authors = ["st0rm <inthishouseofcards@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 
