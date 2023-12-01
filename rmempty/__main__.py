@@ -3,7 +3,10 @@ import os
 
 
 def rmempty(directory: str) -> None:
-    """Removes empty directories."""
+    """Removes empty directories from a directory tree
+
+    :param directory: Directory to remove empty directories from
+    """
     for root, dirs, files in os.walk(directory, topdown=False):
         if not dirs and not files:
             os.rmdir(root)
@@ -16,7 +19,7 @@ def rmempty(directory: str) -> None:
                 parent = os.path.dirname(parent)
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         prog="rmempty",
         description="Remove empty directories from a directory tree",
@@ -24,10 +27,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "path",
-        type=str,
+        help="path to remove empty directories from (default: current directory)",
         nargs="?",
         default=".",
-        help="path to remove empty directories from (default: current directory)",
     )
     args = parser.parse_args()
     rmempty(args.path)
+
+
+if __name__ == "__main__":
+    main()
