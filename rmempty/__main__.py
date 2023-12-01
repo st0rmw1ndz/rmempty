@@ -8,12 +8,12 @@ def rmempty(directory: str) -> None:
     for root, dirs, files in os.walk(directory, topdown=False):
         if not dirs and not files:
             os.rmdir(root)
-            print(f"Removed: {root}")
+            print(f"removed: {root}")
             parent = os.path.dirname(root)
             while parent and parent != ".":
                 if not os.listdir(parent):
                     os.rmdir(parent)
-                    print(f"Removed: {parent}")
+                    print(f"removed: {parent}")
                 parent = os.path.dirname(parent)
 
 
