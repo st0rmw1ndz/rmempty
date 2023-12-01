@@ -1,14 +1,14 @@
 # rmempty
 
-Remove empty directories from a directory tree
+remove empty directories from a directory tree
 
-## Installation
+## installation
 
 ```
 pip install git+https://github.com/st0rmw1ndz/rmempty
 ```
 
-## Usage
+## usage
 
 ```
 usage: rmempty [-h] [path]
