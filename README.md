@@ -21,5 +21,5 @@ positional arguments:
 options:
   -h, --help  show this help message and exit
 
-Source code: https://github.com/st0rmw1ndz/rmempty
+source code: https://github.com/st0rmw1ndz/rmempty
 ```
