@@ -1,37 +1,48 @@
-import argparse
 import os
 
+import click
 
-def rmempty(directory: str) -> None:
-    """removes empty directories from a directory tree"""
+import rmempty
 
-    for root, dirs, files in os.walk(directory, topdown=False):
+HELP: str = """Remove empty directories from a directory tree.
+
+By default, it will use the current directory if no PATH is given.
+
+Copyright (c) 2023 frosty.
+"""
+
+
+@click.command(
+    context_settings=dict(help_option_names=["-h", "--help"]),
+    name="rmempty",
+    help=HELP,
+    epilog="Source code: https://github.com/st0rmw1ndz/rmempty",
+)
+@click.argument(
+    "path",
+    nargs=1,
+    default=".",
+    type=click.Path(exists=True, file_okay=False, dir_okay=True),
+)
+@click.version_option(rmempty.__version__, "-v", "--version")
+def rmempty(path: str) -> None:
+    """Removes empty directories from a directory tree.
+    :param path: Directory path.
+    :return: None.
+    """
+    for root, dirs, files in os.walk(path, topdown=False):
         if not dirs and not files:
             os.rmdir(root)
-            print(f"removed: {root}")
+            if __name__ == "__main__":
+                click.echo(f"Removed: {root}")
             parent = os.path.dirname(root)
             while parent and parent != ".":
                 if not os.listdir(parent):
                     os.rmdir(parent)
-                    print(f"removed: {parent}")
+                    if __name__ == "__main__":
+                        click.echo(f"Removed: {parent}")
                 parent = os.path.dirname(parent)
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        prog="rmempty",
-        description="removes empty directories from a directory tree",
-        epilog="source code: https://github.com/st0rmw1ndz/rmempty",
-    )
-    parser.add_argument(
-        "path",
-        help="path to remove empty directories from (default: current directory)",
-        nargs="?",
-        default=".",
-    )
-    args = parser.parse_args()
-    rmempty(args.path)
-
-
 if __name__ == "__main__":
-    main()
+    rmempty()
