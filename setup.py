@@ -21,7 +21,7 @@ if __name__ == "__main__":
         packages=setuptools.find_packages(),
         entry_points={
             "console_scripts": [
-                "rmempty=rmempty.__main__:main",
+                "rmempty=rmempty.__main__:rmempty",
             ]
         },
         python_requires=">=3.11",
