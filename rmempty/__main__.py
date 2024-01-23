@@ -2,6 +2,8 @@ from pathlib import Path
 
 import click
 
+from rmempty import __version__
+
 
 def rmempty(directory: Path) -> None:
     if not any(directory.iterdir()):
@@ -12,6 +14,7 @@ def rmempty(directory: Path) -> None:
 
 
 @click.command(context_settings=dict(help_option_names=["-h", "--help"]))
+@click.version_option(__version__)
 @click.argument(
     "path",
     nargs=1,
