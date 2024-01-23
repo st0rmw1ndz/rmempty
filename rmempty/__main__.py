@@ -5,14 +5,6 @@ import click
 from rmempty import __version__
 
 
-def rmempty(directory: Path) -> None:
-    if not any(directory.iterdir()):
-        directory.rmdir()
-        click.echo(f"Removed '{directory}'")
-        if directory.parent != Path():
-            rmempty(directory.parent)
-
-
 @click.command(context_settings=dict(help_option_names=["-h", "--help"]))
 @click.version_option(__version__)
 @click.argument(
@@ -28,6 +20,14 @@ def cli(path: str) -> None:
 
     Copyright (c) 2024 frosty.
     """
+
+    def rmempty(directory: Path) -> None:
+        if not any(directory.iterdir()):
+            directory.rmdir()
+            click.echo(f"Removed '{directory}'")
+            if directory.parent != Path():
+                rmempty(directory.parent)
+
     for directory in list(Path(path).rglob("")):
         rmempty(directory)
 
