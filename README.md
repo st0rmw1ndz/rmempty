@@ -19,8 +19,8 @@ Usage: rmempty [OPTIONS] [PATH]
   Copyright (c) 2024 frosty.
 
 Options:
-  --version   Show the version and exit.
-  -h, --help  Show this message and exit.
+  -V, --version  Show the version and exit.
+  -h, --help     Show this message and exit.
 ```
 
 ## Installation
