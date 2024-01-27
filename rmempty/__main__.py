@@ -6,7 +6,7 @@ from rmempty import __version__
 
 
 @click.command(context_settings=dict(help_option_names=["-h", "--help"]))
-@click.version_option(__version__)
+@click.version_option(__version__, "-V", "--version")
 @click.argument(
     "path",
     nargs=1,
